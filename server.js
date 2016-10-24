@@ -5,7 +5,7 @@ users=[];//保存所有在线用户的昵称
 app.use('/', express.static(__dirname + '/www'));
 var server=require('http').createServer(app);
 var io = require('socket.io').listen(server);
-server.listen(80);
+server.listen(process.env.PORT||80);
 io.on('connection', function(socket) {
     //昵称设置  
     socket.on('login', function(nickname) {  
